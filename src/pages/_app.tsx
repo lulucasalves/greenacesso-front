@@ -1,13 +1,19 @@
-import "../styles/globals.ts";
 import type { AppProps } from "next/app";
 import { Global } from "~/styles/globals";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { Provider } from "react-redux";
+import store from "~/store";
+
+export const queryClient = new QueryClient();
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <>
-      <Global />
-      <Component {...pageProps} />
-    </>
+    <Provider store={store}>
+      <QueryClientProvider client={queryClient}>
+        <Global />
+        <Component {...pageProps} />
+      </QueryClientProvider>
+    </Provider>
   );
 }
 

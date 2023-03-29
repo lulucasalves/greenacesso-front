@@ -4,7 +4,7 @@ import { Container } from "./Menu.style";
 export function Menu() {
   return (
     <Container>
-      <Image src="/icons/rickandmorty.svg" width={300} height={150} alt={""} />
+      <Image src="/icons/rickandmorty.svg" width={400} height={200} alt={""} />
     </Container>
   );
 }
