@@ -3,15 +3,29 @@ import { AxiosResponse } from "axios";
 
 import { api } from "~/client/fetcher";
 
-export async function getCharacters({ page }: { page: number }) {
+export async function getCharacters({
+  page,
+  search,
+}: {
+  page: number;
+  search?: string;
+}) {
+  const searchParam = search ? `&&name=${search}` : "";
+    console.log(searchParam)
   return api
-    .get<any>(`/character?page=${page}`)
+    .get<any>(`/character?page=${page}${searchParam}`)
     .then((response: AxiosResponse<any>) => response.data);
 }
 
-export function useCharacters({ page }: { page: number }) {
+export function useCharacters({
+  page,
+  search,
+}: {
+  page: number;
+  search?: string;
+}) {
   const { data, ...rest } = useQuery({
-    queryFn: async () => await getCharacters({ page }),
+    queryFn: async () => await getCharacters({ page, search }),
   });
 
   return {

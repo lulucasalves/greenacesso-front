@@ -23,12 +23,16 @@ export function Pagination({
       <Page active={page === page1} onClick={() => paginate(page1)}>
         {page1}
       </Page>
-      <Page active={page === page2} onClick={() => paginate(page2)}>
-        {page2}
-      </Page>
-      <Page active={page === page3} onClick={() => paginate(page3)}>
-        {page3}
-      </Page>
+      {maxPage > 1 && (
+        <Page active={page === page2} onClick={() => paginate(page2)}>
+          {page2}
+        </Page>
+      )}
+      {maxPage > 3 && (
+        <Page active={page === page3} onClick={() => paginate(page3)}>
+          {page3}
+        </Page>
+      )}
       {page < maxPage && (
         <Page active={false} onClick={() => paginate(page + 1)}>
           {">"}

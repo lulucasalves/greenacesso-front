@@ -5,6 +5,7 @@ const characterSlice = createSlice({
   initialState: {
     characters: {
       page: 1,
+      search: "",
     },
 
     sortBy: "popular",

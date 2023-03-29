@@ -16,17 +16,21 @@ import { IRootState } from "~/store";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { setAllFiltersCharacters } from "~/store/characters";
-import { Pagination } from "../Pagination";
+import { Pagination, Search } from "~/components";
 
 export function Characters() {
   const { characters } = useSelector((auth: IRootState) => auth.characters);
-  const { data, refetch, isLoading } = useCharacters({ page: characters.page });
+  const { data, refetch, isLoading } = useCharacters(characters);
   const dispatch = useDispatch();
 
   function paginate(page: number) {
-    if (page <= 42 && page > 0) {
-      dispatch(setAllFiltersCharacters({ page }));
+    if (page <= data.info.pages && page > 0) {
+      dispatch(setAllFiltersCharacters({ ...characters, page }));
     }
+  }
+
+  function search(search: string) {
+    dispatch(setAllFiltersCharacters({ page: 1, search }));
   }
 
   useEffect(() => {
@@ -35,6 +39,7 @@ export function Characters() {
 
   return (
     <Container>
+      <Search search={search} />
       <Cards>
         {data &&
           data.results.map((value: any) => {
@@ -53,8 +58,8 @@ export function Characters() {
                   </p>
                   <p title={value.species}>
                     <span>Specie:</span>{" "}
-                    {value.species.length > 8
-                      ? value.species.slice(0, 8) + "..."
+                    {value.species.length > 5
+                      ? value.species.slice(0, 5) + "..."
                       : value.species}
                   </p>
                 </Status>

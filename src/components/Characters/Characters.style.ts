@@ -15,14 +15,14 @@ export const Cards = styled.div`
   align-items: center;
   gap: 70px;
   flex-wrap: wrap;
-  width: 80%;
+  width: 95%;
   justify-content: center;
 `;
 
 export const CardContainer = styled.div<{
   alive: "Dead" | "Alive" | "unknown";
 }>`
-  width: 300px;
+  width: 320px;
   padding: 30px;
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.4);
@@ -83,7 +83,7 @@ export const Name = styled.p`
 export const Status = styled.div`
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
   margin-top: 10px;
 
   p {
