@@ -11,10 +11,13 @@ export async function getCharacters({
   search?: string;
 }) {
   const searchParam = search ? `&&name=${search}` : "";
-    console.log(searchParam)
+  console.log(searchParam);
   return api
     .get<any>(`/character?page=${page}${searchParam}`)
-    .then((response: AxiosResponse<any>) => response.data);
+    .then((response: AxiosResponse<any>) => response.data)
+    .catch(() => {
+      data: [{ results: [] }];
+    });
 }
 
 export function useCharacters({
