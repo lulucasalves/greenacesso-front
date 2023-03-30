@@ -6,3 +6,4 @@ export * from "./Search";
 export * from "./TopFilter";
 export * from "./Card";
 export * from "./NotFound";
+export * from './Filters'

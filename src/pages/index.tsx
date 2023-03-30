@@ -1,6 +1,6 @@
 import Head from "next/head";
-import Image from "next/image";
-import { Characters, Cover, Menu } from "~/components";
+import { Menu } from "~/components";
+import { CharactersTemplate } from "~/templates";
 
 export default function Home() {
   return (
@@ -12,7 +12,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.svg" />
       </Head>
       <Menu />
-      <Characters />
+      <CharactersTemplate />
     </>
   );
 }

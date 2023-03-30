@@ -18,17 +18,12 @@ export function Characters() {
     }
   }
 
-  function search(search: string) {
-    dispatch(setAllFiltersCharacters({ page: 1, search }));
-  }
-
   useEffect(() => {
     refetch();
   }, [characters, refetch]);
 
   return (
     <Container>
-      <Search search={search} />
       <Cards>
         {!isLoading && !isFetching ? (
           data ? (
@@ -39,7 +34,7 @@ export function Characters() {
             <NotFound />
           )
         ) : (
-          [1, 2, 3, 4, 5, 6].map((value: any) => (
+          [1, 2, 3, 4, 5, 6, 7, 8, 9].map((value: number) => (
             <Image
               key={value}
               src="/gifs/portal.gif"

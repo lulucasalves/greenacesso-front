@@ -13,7 +13,7 @@ import { HiLocationMarker } from "react-icons/hi";
 export function Card({ value }: { value: any }) {
   return (
     <CardContainer alive={value.status} key={value.id}>
-      <CardImage url={value.image}>
+      <CardImage className="cardImage" url={value.image}>
         <Name title={value.name}>
           {value.name.length > 20
             ? value.name.slice(0, 20) + "..."
@@ -22,7 +22,10 @@ export function Card({ value }: { value: any }) {
       </CardImage>
       <Status>
         <p>
-          <span>Gender:</span> {value.gender}
+          <span>Gender:</span>{" "}
+          {value.gender.length > 5
+            ? value.gender.slice(0, 5) + "..."
+            : value.gender}
         </p>
         <p title={value.species}>
           <span>Specie:</span>{" "}
@@ -42,7 +45,7 @@ export function Card({ value }: { value: any }) {
         {value.status}
       </IsAlive>
       <Location title={value.location.name}>
-        <HiLocationMarker size={14} />
+        <HiLocationMarker size={16} />
         {value.location.name.length > 25
           ? value.location.name.slice(0, 25) + "..."
           : value.location.name}

@@ -6,6 +6,8 @@ export function Search({ search }: { search: (value: string) => void }) {
   function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
+    console.log(e);
+
     search(e.target[0].value);
   }
 

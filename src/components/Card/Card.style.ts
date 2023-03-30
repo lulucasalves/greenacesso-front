@@ -25,6 +25,11 @@ export const CardContainer = styled.div<{
           ? colors.redOpacity
           : colors.whiteOpacity};
     transition: 0.3s;
+
+    .cardImage {
+      transition: 0.3s;
+      transform: scale(1.05);
+    }
   }
 
   gap: 10px;
@@ -38,16 +43,11 @@ export const CardImage = styled.div<{ url: string }>`
   background-image: ${({ url }) => url && `url(${url})`};
   position: relative;
   transition: 0.3s;
-
-  &:hover {
-    transition: 0.3s;
-    transform: scale(1.05);
-  }
 `;
 
 export const Name = styled.p`
   position: absolute;
-  font-weight: 600;
+  font-family: "Sriracha";
   color: ${colors.blueblack};
   font-size: 16px;
   padding: 5px;

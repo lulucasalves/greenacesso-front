@@ -16,6 +16,11 @@ export function Pagination({
   return (
     <Container>
       {page > 1 && (
+        <Page active={false} onClick={() => paginate(1)}>
+          {"<<"}
+        </Page>
+      )}
+      {page > 1 && (
         <Page active={false} onClick={() => paginate(page - 1)}>
           {"<"}
         </Page>
@@ -36,6 +41,11 @@ export function Pagination({
       {page < maxPage && (
         <Page active={false} onClick={() => paginate(page + 1)}>
           {">"}
+        </Page>
+      )}
+      {page < maxPage && (
+        <Page active={false} onClick={() => paginate(maxPage)}>
+          {">>"}
         </Page>
       )}
     </Container>

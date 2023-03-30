@@ -7,7 +7,7 @@ export const Container = styled.section`
   justify-content: center;
   align-items: center;
   gap: 10px;
-  margin-top: 30px;
+  margin-top: 50px;
 `;
 
 export const Page = styled.div<{ active: boolean }>`
