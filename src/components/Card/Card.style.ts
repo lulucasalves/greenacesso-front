@@ -15,6 +15,14 @@ export const CardContainer = styled.div<{
   border-radius: 16px;
   box-shadow: 0px 0px 20px -2.5px ${colors.whiteOpacity};
   transition: 0.3s;
+  position: relative;
+
+  .star {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    fill: yellow;
+  }
 
   &:hover {
     box-shadow: 0px 0px 20px 10px

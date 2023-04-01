@@ -13,6 +13,14 @@ export const CardContainer = styled.div<{
   box-shadow: 0px 0px 20px -2.5px ${colors.whiteOpacity};
   transition: 0.3s;
   gap: 30px;
+  position: relative;
+
+  .star {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    fill: yellow;
+  }
 
   &:hover {
     box-shadow: 0px 0px 20px 10px
@@ -29,7 +37,6 @@ export const CardContainer = styled.div<{
       transform: scale(1.05);
     }
   }
-
 `;
 
 export const CardImage = styled.div<{ url: string }>`

@@ -3,7 +3,7 @@ import { useCharacters } from "~/client/characters";
 import { IRootState } from "~/store";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { setAllFiltersCharacters } from "~/store/characters";
+import { setAllFiltersCharacters } from "~/store/filters";
 import { Card, CardsLayout, NotFound, Pagination, Search } from "~/components";
 import Image from "next/image";
 

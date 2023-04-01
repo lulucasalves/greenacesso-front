@@ -1,9 +1,17 @@
 import styled from "styled-components";
 
 export const Container = styled.section`
-  display: flex;
-  flex-direction: column;
   width: 100%;
+  display: none;
+  flex-direction: column;
+  padding: 30px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 16px;
+  height: 100%;
+
+  @media (max-width: 1040px) {
+    display: flex;
+  }
 `;
 
 export const Title = styled.p`
@@ -18,16 +26,6 @@ export const Selects = styled.div`
   gap: 30px;
   display: flex;
   flex-direction: column;
-
-  button {
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 10px;
-    width: 100%;
-    font-weight: 500;
-    margin-top: 30px;
-    font-size: 16px;
-    border-radius: 8px;
-  }
 `;
 
 export const Select = styled.div`

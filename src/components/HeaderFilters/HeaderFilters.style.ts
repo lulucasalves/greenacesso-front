@@ -8,7 +8,7 @@ export const Container = styled.div`
   gap: 30px;
   margin-bottom: 50px;
 
-  @media (max-width: 790px) {
+  @media (max-width: 1040px) {
     flex-direction: column;
   }
 `;

@@ -1,8 +1,20 @@
 import Head from "next/head";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { Menu } from "~/components";
+import { setFavorites } from "~/store/favorites";
 import { CharactersTemplate } from "~/templates";
 
 export default function Home() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const getStorageFavorites = localStorage.getItem("favorites");
+
+    if (getStorageFavorites)
+      dispatch(setFavorites(JSON.parse(getStorageFavorites)));
+  }, []);
+
   return (
     <>
       <Head>

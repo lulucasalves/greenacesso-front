@@ -1,20 +1,16 @@
 import { useDispatch, useSelector } from "react-redux";
 import { IRootState } from "~/store";
-import { setAllFiltersCharacters } from "~/store/characters";
+import { setAllFiltersCharacters } from "~/store/filters";
 import { Search } from "../Search";
-import { Container, Options, Card, FiltersModal } from "./HeaderFilters.style";
+import { Container, Options, Card } from "./HeaderFilters.style";
 import { FaGripHorizontal, FaListUl } from "react-icons/fa";
 import { setLayouts } from "~/store/layout";
-import { HiOutlineFilter } from "react-icons/hi";
-import { Modal } from "../Modal";
-import { useState } from "react";
 import { FiltersForModal } from "../FiltersForModal";
 
 export function HeaderFilters() {
   const dispatch = useDispatch();
   const { characters } = useSelector((auth: IRootState) => auth.characters);
   const { layout } = useSelector((auth: IRootState) => auth.layout);
-  const [modal, setModal] = useState(false);
 
   function search(search: string) {
     dispatch(
@@ -32,12 +28,7 @@ export function HeaderFilters() {
 
   return (
     <Container>
-      <Modal isOpen={modal} onClose={() => setModal(false)}>
-        <FiltersForModal onClose={() => setModal(false)} />
-      </Modal>
-      <FiltersModal onClick={() => setModal(true)}>
-        <HiOutlineFilter size={24} />
-      </FiltersModal>
+      <FiltersForModal />
       <Search search={search} />
       <Options>
         <Card

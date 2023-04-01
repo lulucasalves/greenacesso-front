@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Container } from "./NotFound.style";
 import { useDispatch } from "react-redux";
-import { clearAllFilters } from "~/store/characters";
+import { clearAllFilters } from "~/store/filters";
 
 export function NotFound() {
   const dispatch = useDispatch();

@@ -12,10 +12,34 @@ import {
 } from "./CardList.style";
 import { FaChild, FaSkull, FaQuestion } from "react-icons/fa";
 import { HiLocationMarker } from "react-icons/hi";
+import { AiFillStar, AiOutlineStar } from "react-icons/ai";
+import { addFavorite, removeFavorite } from "~/store/favorites";
+import { useDispatch, useSelector } from "react-redux";
+import { IRootState } from "~/store";
 
 export function CardList({ value }: { value: any }) {
+  const { favorites } = useSelector((auth: IRootState) => auth.favorites);
+  const dispatch = useDispatch();
+
   return (
     <CardContainer alive={value.status} key={value.id}>
+      {favorites.includes(value.id) ? (
+        <AiFillStar
+          onClick={() => {
+            dispatch(removeFavorite(value.id));
+          }}
+          className="star"
+          size={24}
+        />
+      ) : (
+        <AiOutlineStar
+          className="star"
+          size={24}
+          onClick={() => {
+            dispatch(addFavorite(value.id));
+          }}
+        />
+      )}
       <CardImage className="cardImage" url={value.image} />
       <Data>
         <NameContainer>
