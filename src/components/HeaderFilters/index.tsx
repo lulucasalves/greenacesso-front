@@ -14,7 +14,7 @@ export function HeaderFilters() {
   const dispatch = useDispatch();
   const { characters } = useSelector((auth: IRootState) => auth.characters);
   const { layout } = useSelector((auth: IRootState) => auth.layout);
-  const [modal, setModal] = useState(true);
+  const [modal, setModal] = useState(false);
 
   function search(search: string) {
     dispatch(
