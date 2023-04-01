@@ -46,11 +46,14 @@ export function Filters() {
       <Selects>
         <Select>
           <IoMaleFemaleSharp size={20} />
-          <select onChange={(e) => changeGender(e.target.value)}>
+          <select
+            value={characters.gender}
+            onChange={(e) => changeGender(e.target.value)}
+          >
             <option disabled value="">
               Select a gender
             </option>
-            <option value="">All</option>
+            <option value="all">All</option>
             <option value="female">Female</option>
             <option value="genderless">Genderless</option>
             <option value="male">Male</option>
@@ -59,11 +62,14 @@ export function Filters() {
         </Select>
         <Select>
           <GiDeathSkull size={18} />
-          <select onChange={(e) => changeStatus(e.target.value)}>
+          <select
+            value={characters.status}
+            onChange={(e) => changeStatus(e.target.value)}
+          >
             <option disabled value="">
               Select a status
             </option>
-            <option value="">All</option>
+            <option value="all">All</option>
             <option value="alive">Alive</option>
             <option value="dead">Dead</option>
             <option value="unknown">Unkown</option>
@@ -71,17 +77,21 @@ export function Filters() {
         </Select>
         <Select>
           <RiAliensFill size={20} />
-          <select onChange={(e) => changeSpecie(e.target.value)}>
+          <select
+            value={characters.specie}
+            id="specie"
+            onChange={(e) => changeSpecie(e.target.value)}
+          >
             <option disabled value="">
               Select a specie
             </option>
-            <option value="">All</option>
+            <option value="all">All</option>
             <option value="alien">Alien</option>
             <option value="animal">Animal</option>
-            <option value="cornenberg">Cornenberg</option>
+            <option value="cronenberg">Cronenberg</option>
             <option value="disease">Disease</option>
             <option value="human">Human</option>
-            <option value="humanoide">Humanoide</option>
+            <option value="humanoid">Humanoid</option>
             <option value="mythological creature">Mythological Creature</option>
             <option value="poopybutthole">Poopybutthole</option>
             <option value="robot">Robot</option>

@@ -1,4 +1,3 @@
-import { FormEvent } from "react";
 import { FaSearch } from "react-icons/fa";
 import { Container } from "./Search.style";
 

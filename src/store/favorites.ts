@@ -8,7 +8,6 @@ const favoriteSlice = createSlice({
   reducers: {
     setFavorites: (state: any, action) => {
       state.favorites = action.payload;
-      console.log(action.payload)
     },
     addFavorite: (state: any, action) => {
       const favorites = state.favorites.filter(
@@ -21,9 +20,9 @@ const favoriteSlice = createSlice({
       );
     },
     removeFavorite: (state: any, action) => {
-      state.favorites = state.favorites.filter(
-        (value) => value.id !== action.payload.id
-      );
+      state.favorites = state.favorites.filter(function (item) {
+        return item !== action.payload;
+      });
     },
   },
 });
