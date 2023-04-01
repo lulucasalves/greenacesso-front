@@ -6,14 +6,25 @@ import { api } from "~/client/fetcher";
 export async function getCharacters({
   page,
   search,
+  specie,
+  gender,
+  status,
 }: {
   page: number;
   search?: string;
+  specie?: string;
+  gender?: string;
+  status?: string;
 }) {
   const searchParam = search ? `&&name=${search}` : "";
-  console.log(searchParam);
+  const specieParam = specie && specie !== "all" ? `&&species=${specie}` : "";
+  const genderParam = gender && gender !== "all" ? `&&gender=${gender}` : "";
+  const statusParam = status && status !== "all" ? `&&status=${status}` : "";
+
   return api
-    .get<any>(`/character?page=${page}${searchParam}`)
+    .get<any>(
+      `/character?page=${page}${searchParam}${specieParam}${genderParam}${statusParam}`
+    )
     .then((response: AxiosResponse<any>) => response.data)
     .catch(() => {
       data: [{ results: [] }];
@@ -23,12 +34,19 @@ export async function getCharacters({
 export function useCharacters({
   page,
   search,
+  specie,
+  gender,
+  status,
 }: {
   page: number;
   search?: string;
+  specie?: string;
+  gender?: string;
+  status?: string;
 }) {
   const { data, ...rest } = useQuery({
-    queryFn: async () => await getCharacters({ page, search }),
+    queryFn: async () =>
+      await getCharacters({ page, search, specie, gender, status }),
   });
 
   return {

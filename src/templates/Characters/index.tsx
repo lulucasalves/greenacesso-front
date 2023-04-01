@@ -1,18 +1,13 @@
-import { Characters, Filters, Search } from "~/components";
-import { setAllFiltersCharacters } from "~/store/characters";
+import { Characters, Filters, HeaderFilters } from "~/components";
 import { Container, Divisor } from "./Characters.style";
-import { useDispatch } from "react-redux";
+import { useState } from "react";
 
 export function CharactersTemplate() {
-  const dispatch = useDispatch();
-
-  function search(search: string) {
-    dispatch(setAllFiltersCharacters({ page: 1, search }));
-  }
+  const [cardsStyle, setCardsStyle] = useState("square");
 
   return (
     <Container>
-      <Search search={search} />
+      <HeaderFilters />
       <Divisor>
         <Filters />
         <Characters />

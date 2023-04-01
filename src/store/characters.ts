@@ -6,16 +6,27 @@ const characterSlice = createSlice({
     characters: {
       page: 1,
       search: "",
+      gender: "",
+      specie: "",
+      status: "",
     },
-
-    sortBy: "popular",
   },
   reducers: {
     setAllFiltersCharacters: (state: any, action) => {
       state.characters = action.payload;
     },
+    clearAllFilters: (state: any) => {
+      state.characters = {
+        page: 1,
+        search: "",
+        gender: "",
+        specie: "",
+        status: "",
+      };
+    },
   },
 });
 
-export const { setAllFiltersCharacters } = characterSlice.actions;
+export const { setAllFiltersCharacters, clearAllFilters } =
+  characterSlice.actions;
 export const characterReducer = characterSlice.reducer;

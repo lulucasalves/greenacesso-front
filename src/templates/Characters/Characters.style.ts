@@ -5,7 +5,16 @@ export const Container = styled.section`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  padding: 50px;
+  padding: 50px 100px;
+  overflow-x: hidden;
+
+  @media (max-width: 1040px) {
+    padding: 50px;
+  }
+
+  @media (max-width: 500px) {
+    padding: 50px 25px;
+  }
 `;
 
 export const Divisor = styled.div`

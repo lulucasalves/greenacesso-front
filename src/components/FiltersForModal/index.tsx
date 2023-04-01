@@ -1,12 +1,13 @@
 import { IoMaleFemaleSharp } from "react-icons/io5";
 import { GiDeathSkull } from "react-icons/gi";
 import { RiAliensFill } from "react-icons/ri";
-import { Container, Select, Selects, Title } from "./Filters.style";
+import { Container, Select, Selects, Title } from "./FiltersForModal.style";
 import { useDispatch, useSelector } from "react-redux";
 import { setAllFiltersCharacters } from "~/store/characters";
 import { IRootState } from "~/store";
+import { useEffect } from "react";
 
-export function Filters() {
+export function FiltersForModal({ onClose }: { onClose: () => void }) {
   const dispatch = useDispatch();
   const { characters } = useSelector((auth: IRootState) => auth.characters);
 
@@ -46,11 +47,14 @@ export function Filters() {
       <Selects>
         <Select>
           <IoMaleFemaleSharp size={20} />
-          <select onChange={(e) => changeGender(e.target.value)}>
+          <select
+            value={characters.gender}
+            onChange={(e) => changeGender(e.target.value)}
+          >
             <option disabled value="">
               Select a gender
             </option>
-            <option value="">All</option>
+            <option value="all">All</option>
             <option value="female">Female</option>
             <option value="genderless">Genderless</option>
             <option value="male">Male</option>
@@ -59,11 +63,14 @@ export function Filters() {
         </Select>
         <Select>
           <GiDeathSkull size={18} />
-          <select onChange={(e) => changeStatus(e.target.value)}>
+          <select
+            value={characters.status}
+            onChange={(e) => changeStatus(e.target.value)}
+          >
             <option disabled value="">
               Select a status
             </option>
-            <option value="">All</option>
+            <option value="all">All</option>
             <option value="alive">Alive</option>
             <option value="dead">Dead</option>
             <option value="unknown">Unkown</option>
@@ -71,11 +78,14 @@ export function Filters() {
         </Select>
         <Select>
           <RiAliensFill size={20} />
-          <select onChange={(e) => changeSpecie(e.target.value)}>
+          <select
+            value={characters.specie}
+            onChange={(e) => changeSpecie(e.target.value)}
+          >
             <option disabled value="">
               Select a specie
             </option>
-            <option value="">All</option>
+            <option value="all">All</option>
             <option value="alien">Alien</option>
             <option value="animal">Animal</option>
             <option value="cornenberg">Cornenberg</option>
@@ -88,6 +98,7 @@ export function Filters() {
             <option value="unknown">Unknown</option>
           </select>
         </Select>
+        <button onClick={onClose}>Apply Filters</button>
       </Selects>
     </Container>
   );

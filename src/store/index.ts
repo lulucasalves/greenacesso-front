@@ -1,9 +1,11 @@
 import { combineReducers, createStore } from "redux";
 
 import { characterReducer } from "./characters";
+import { layoutReducer } from "./layout";
 
 const rootReducer = combineReducers({
   characters: characterReducer,
+  layout: layoutReducer,
 });
 
 const store = createStore(rootReducer);

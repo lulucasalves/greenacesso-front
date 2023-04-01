@@ -13,7 +13,8 @@ export const Container = styled.section`
 export const Page = styled.div<{ active: boolean }>`
   cursor: pointer;
   padding: 5px;
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: 500;
   border-radius: 4px;
   background-color: ${({ active }) =>
     active ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.5)"};
