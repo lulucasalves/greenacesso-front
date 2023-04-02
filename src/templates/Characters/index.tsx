@@ -1,4 +1,5 @@
 import { Characters, Filters, HeaderFilters, Title } from "~/components";
+
 import { Container, Divisor } from "./Characters.style";
 
 export function CharactersTemplate() {

@@ -1,6 +1,7 @@
 import Head from "next/head";
+
 import { Menu } from "~/components";
-import { FavoritesTemplate } from "~/templates/Favorites";
+import { FavoritesTemplate } from "~/templates";
 
 export default function Favorites() {
   return (

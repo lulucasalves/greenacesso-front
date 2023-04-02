@@ -1,12 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+interface ILayout {
+  layout: string;
+}
+
 const layoutSlice = createSlice({
   name: "layouts",
   initialState: {
-    layout: 'square'
+    layout: "square",
   },
   reducers: {
-    setLayouts: (state: any, action) => {
+    setLayouts: (state: ILayout, action) => {
       state.layout = action.payload;
     },
   },

@@ -1,4 +1,5 @@
 import { FaSearch } from "react-icons/fa";
+
 import { Container } from "./Search.style";
 
 export function Search({ search }: { search: (value: string) => void }) {

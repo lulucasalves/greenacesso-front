@@ -1,4 +1,5 @@
-import { Favorites, Filters, HeaderFilters, Title } from "~/components";
+import { Favorites, HeaderFilters, Title } from "~/components";
+
 import { Container, Divisor } from "./Favorites.style";
 
 export function FavoritesTemplate() {

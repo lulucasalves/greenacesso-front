@@ -1,3 +1,14 @@
+import { AiFillStar, AiOutlineStar } from "react-icons/ai";
+import { FaChild, FaQuestion, FaSkull } from "react-icons/fa";
+import { useEffect } from "react";
+import Image from "next/image";
+import { useDispatch, useSelector } from "react-redux";
+
+import { NotFoundCharacter } from "~/components";
+import { useCharacter } from "~/client/characters";
+import { IRootState } from "~/store";
+import { addFavorite, removeFavorite } from "~/store/favorites";
+
 import {
   Container,
   CharacterContainer,
@@ -8,15 +19,6 @@ import {
   IsAlive,
   Favorites,
 } from "./Character.style";
-import { useCharacter } from "~/client/characters";
-import { useEffect } from "react";
-import Image from "next/image";
-import { NotFoundCharacter } from "../NotFoundCharacter";
-import { FaChild, FaQuestion, FaSkull } from "react-icons/fa";
-import { useDispatch, useSelector } from "react-redux";
-import { IRootState } from "~/store";
-import { AiFillStar, AiOutlineStar } from "react-icons/ai";
-import { addFavorite, removeFavorite } from "~/store/favorites";
 
 export function Character({ id }: { id: string }) {
   const { data, isLoading, isFetching, refetch } = useCharacter(id as string);

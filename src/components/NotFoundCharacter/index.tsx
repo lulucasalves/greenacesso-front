@@ -1,4 +1,5 @@
 import Image from "next/image";
+
 import { Container } from "./NotFoundCharacter.style";
 
 export function NotFoundCharacter() {

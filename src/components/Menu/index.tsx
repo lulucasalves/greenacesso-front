@@ -1,7 +1,9 @@
 import Image from "next/image";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
+
 import { setFavorites } from "~/store/favorites";
+
 import { Container } from "./Menu.style";
 
 export function Menu() {

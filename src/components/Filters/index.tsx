@@ -1,10 +1,12 @@
 import { IoMaleFemaleSharp } from "react-icons/io5";
 import { GiDeathSkull } from "react-icons/gi";
 import { RiAliensFill } from "react-icons/ri";
-import { Container, Select, Selects, Title } from "./Filters.style";
 import { useDispatch, useSelector } from "react-redux";
+
 import { setAllFiltersCharacters } from "~/store/filters";
 import { IRootState } from "~/store";
+
+import { Container, Select, Selects, Title } from "./Filters.style";
 
 export function Filters() {
   const dispatch = useDispatch();

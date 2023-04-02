@@ -1,15 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+interface IFavorite {
+  favorites: number[];
+}
+
 const favoriteSlice = createSlice({
   name: "favorites",
   initialState: {
     favorites: [],
   },
   reducers: {
-    setFavorites: (state: any, action) => {
+    setFavorites: (state: IFavorite, action) => {
       state.favorites = action.payload;
     },
-    addFavorite: (state: any, action) => {
+    addFavorite: (state: IFavorite, action) => {
       const favorites = state.favorites.filter(
         (item, index) => state.favorites.indexOf(item) === index
       );
@@ -19,8 +23,8 @@ const favoriteSlice = createSlice({
         JSON.stringify([...favorites, action.payload])
       );
     },
-    removeFavorite: (state: any, action) => {
-      const filtered = state.favorites.filter(function (item) {
+    removeFavorite: (state: IFavorite, action) => {
+      const filtered = state.favorites.filter((item) => {
         return item !== action.payload;
       });
 

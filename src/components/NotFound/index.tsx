@@ -1,7 +1,9 @@
 import Image from "next/image";
-import { Container } from "./NotFound.style";
 import { useDispatch } from "react-redux";
+
 import { clearAllFilters } from "~/store/filters";
+
+import { Container } from "./NotFound.style";
 
 export function NotFound({ hasButton = true }: { hasButton?: boolean }) {
   const dispatch = useDispatch();

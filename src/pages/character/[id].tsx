@@ -1,4 +1,5 @@
 import Head from "next/head";
+
 import { Menu } from "~/components";
 import { CharacterTemplate } from "~/templates";
 

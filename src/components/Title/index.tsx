@@ -1,6 +1,8 @@
-import { Container } from "./Title.style";
 import { useDispatch } from "react-redux";
+
 import { clearAllFilters } from "~/store/filters";
+
+import { Container } from "./Title.style";
 
 export function Title({
   title,

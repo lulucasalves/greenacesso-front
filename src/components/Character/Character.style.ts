@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 import { colors } from "~/styles/colors";
 
 export const Container = styled.section`
@@ -51,7 +52,7 @@ export const InfoContainer = styled.div`
   }
 `;
 
-export const IsAlive = styled.div<{ alive: "Alive" | "Dead" | "unknown" }>`
+export const IsAlive = styled.div<{ alive: string }>`
   display: flex;
   align-items: center;
   gap: 7px;

@@ -1,11 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
+import { FaGripHorizontal, FaListUl } from "react-icons/fa";
+
 import { IRootState } from "~/store";
 import { setAllFiltersCharacters } from "~/store/filters";
-import { Search } from "../Search";
-import { Container, Options, Card } from "./HeaderFilters.style";
-import { FaGripHorizontal, FaListUl } from "react-icons/fa";
+import { Search, FiltersForModal } from "~/components";
 import { setLayouts } from "~/store/layout";
-import { FiltersForModal } from "../FiltersForModal";
+
+import { Container, Options, Card } from "./HeaderFilters.style";
 
 export function HeaderFilters({ hasSearch = true }: { hasSearch?: boolean }) {
   const dispatch = useDispatch();

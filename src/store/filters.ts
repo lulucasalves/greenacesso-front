@@ -1,5 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+interface IFilters {
+  characters: {
+    page: number;
+    search: string;
+    gender: string;
+    specie: string;
+    status: string;
+  };
+}
+
 const characterSlice = createSlice({
   name: "characters",
   initialState: {
@@ -12,10 +22,10 @@ const characterSlice = createSlice({
     },
   },
   reducers: {
-    setAllFiltersCharacters: (state: any, action) => {
+    setAllFiltersCharacters: (state: IFilters, action) => {
       state.characters = action.payload;
     },
-    clearAllFilters: (state: any) => {
+    clearAllFilters: (state: IFilters) => {
       state.characters = {
         page: 1,
         search: "",

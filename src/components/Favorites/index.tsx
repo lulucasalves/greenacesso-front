@@ -1,10 +1,12 @@
-import { Cards, Container } from "./Favorites.style";
-import { useCharacters } from "~/client/characters";
-import { IRootState } from "~/store";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
-import { CardsLayout } from "~/components";
 import Image from "next/image";
+
+import { CardsLayout } from "~/components";
+import { useCharacters } from "~/client/characters";
+import { IRootState } from "~/store";
+
+import { Cards, Container } from "./Favorites.style";
 
 export function Favorites() {
   const { layout } = useSelector((auth: IRootState) => auth.layout);
@@ -28,7 +30,7 @@ export function Favorites() {
           <CardsLayout
             hasButton={false}
             layout={layout}
-            data={favorites.length ? data : data.results}
+            data={favorites.length ? data : data?.results}
           />
         ) : (
           [1, 2, 3, 4, 5, 6, 7, 8, 9].map((value: number) => (

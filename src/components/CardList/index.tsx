@@ -1,3 +1,12 @@
+import { useDispatch, useSelector } from "react-redux";
+import { FaChild, FaSkull, FaQuestion } from "react-icons/fa";
+import { HiLocationMarker } from "react-icons/hi";
+import { AiFillStar, AiOutlineStar } from "react-icons/ai";
+
+import { addFavorite, removeFavorite } from "~/store/favorites";
+import { IRootState } from "~/store";
+import { IGetCharacter } from "~/types";
+
 import {
   CardImage,
   CardContainer,
@@ -11,14 +20,8 @@ import {
   AliveContainer,
   Content,
 } from "./CardList.style";
-import { FaChild, FaSkull, FaQuestion } from "react-icons/fa";
-import { HiLocationMarker } from "react-icons/hi";
-import { AiFillStar, AiOutlineStar } from "react-icons/ai";
-import { addFavorite, removeFavorite } from "~/store/favorites";
-import { useDispatch, useSelector } from "react-redux";
-import { IRootState } from "~/store";
 
-export function CardList({ value }: { value: any }) {
+export function CardList({ value }: { value: IGetCharacter }) {
   const { favorites } = useSelector((auth: IRootState) => auth.favorites);
   const dispatch = useDispatch();
 

@@ -1,6 +1,6 @@
 import { combineReducers, createStore } from "redux";
-import { favoriteReducer } from "./favorites";
 
+import { favoriteReducer } from "./favorites";
 import { characterReducer } from "./filters";
 import { layoutReducer } from "./layout";
 

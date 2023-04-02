@@ -1,11 +1,13 @@
-import { Cards, Container } from "./Characters.style";
-import { useCharacters } from "~/client/characters";
-import { IRootState } from "~/store";
+import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
+
+import { useCharacters } from "~/client/characters";
+import { IRootState } from "~/store";
 import { setAllFiltersCharacters } from "~/store/filters";
-import { CardsLayout, Pagination, Search } from "~/components";
-import Image from "next/image";
+import { CardsLayout, Pagination } from "~/components";
+
+import { Cards, Container } from "./Characters.style";
 
 export function Characters() {
   const { characters } = useSelector((auth: IRootState) => auth.characters);

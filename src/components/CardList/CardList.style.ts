@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { colors } from "~/styles/colors";
 
 export const CardContainer = styled.div<{
-  alive: "Dead" | "Alive" | "unknown";
+  alive: string;
 }>`
   position: relative;
 
@@ -95,7 +95,7 @@ export const Episodes = styled.p`
   color: rgba(255, 255, 255, 0.8);
 `;
 
-export const IsAlive = styled.div<{ alive: "Alive" | "Dead" | "unknown" }>`
+export const IsAlive = styled.div<{ alive: string }>`
   display: flex;
   align-items: center;
   gap: 7px;

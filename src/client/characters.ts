@@ -2,6 +2,7 @@ import { useQuery } from "react-query";
 import { AxiosResponse } from "axios";
 
 import { api } from "~/client/fetcher";
+import { IGetCharacter, IGetParams } from "~/types/index";
 
 export async function getCharacters({
   page,
@@ -25,10 +26,12 @@ export async function getCharacters({
   const idsRoute = ids && ids.length ? `/${ids.join(",")}` : "";
 
   return api
-    .get<any>(
+    .get<IGetCharacter[] | IGetParams>(
       `/character${idsRoute}?page=${page}${searchParam}${specieParam}${genderParam}${statusParam}`
     )
-    .then((response: AxiosResponse<any>) => response.data)
+    .then(
+      (response: AxiosResponse<IGetCharacter[] | IGetParams>) => response.data
+    )
     .catch(() => {
       data: [{ results: [] }];
     });
@@ -36,8 +39,8 @@ export async function getCharacters({
 
 export async function getCharacter(id: string) {
   return api
-    .get<any>(`/character/${id}`)
-    .then((response: AxiosResponse<any>) => response.data)
+    .get<IGetCharacter>(`/character/${id}`)
+    .then((response: AxiosResponse<IGetCharacter>) => response.data)
     .catch(() => {
       data: {
       }
