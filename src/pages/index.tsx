@@ -1,9 +1,10 @@
+import { NextPage } from "next";
 import Head from "next/head";
 
 import { Menu } from "~/components";
 import { CharactersTemplate } from "~/templates";
 
-export default function Home() {
+const Home: NextPage = () => {
   return (
     <>
       <Head>
@@ -13,4 +14,6 @@ export default function Home() {
       <CharactersTemplate />
     </>
   );
-}
+};
+
+export default Home;

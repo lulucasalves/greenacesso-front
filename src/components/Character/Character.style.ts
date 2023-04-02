@@ -117,4 +117,8 @@ export const Favorites = styled.div`
       fill: rgba(252, 198, 0, 0.8) !important;
     }
   }
+
+  @media (max-width: 500px) {
+    justify-content: center;
+  }
 `;

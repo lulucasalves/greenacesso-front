@@ -17,7 +17,7 @@ export function Menu() {
   }, [dispatch]);
 
   return (
-    <Container>
+    <Container data-testid="menu">
       <Image src="/icons/rickandmorty.svg" width={400} height={200} alt={""} />
     </Container>
   );

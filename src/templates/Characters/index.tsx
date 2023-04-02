@@ -4,7 +4,7 @@ import { Container, Divisor } from "./Characters.style";
 
 export function CharactersTemplate() {
   return (
-    <Container>
+    <Container data-testid="charactersTemplate">
       <Title url="/favorites" title="All Characters" button="My Favorites" />
       <HeaderFilters />
       <Divisor>

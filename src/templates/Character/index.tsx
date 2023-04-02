@@ -10,7 +10,7 @@ export function CharacterTemplate() {
 
   return (
     <Container>
-      <Title url="/" title="Character" button="All Characters" />
+      <Title url="/" title="Character" button="All Characters" url2='/favorites' button2='My Favorites' />
       {id && <Character id={id as string} />}
     </Container>
   );
