@@ -13,3 +13,4 @@ export * from "./NotFoundCharacter";
 export * from "./Pagination";
 export * from "./Search";
 export * from "./Title";
+export * from "./ScrollToTop";

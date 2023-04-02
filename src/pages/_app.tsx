@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 
 import { Global } from "~/styles/globals";
 import store from "~/store";
+import { ScrollToTop } from "~/components";
 
 export const queryClient = new QueryClient();
 
@@ -12,6 +13,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <Provider store={store}>
       <QueryClientProvider client={queryClient}>
         <Global />
+        <ScrollToTop />
         <Component {...pageProps} />
       </QueryClientProvider>
     </Provider>
