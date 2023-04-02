@@ -4,6 +4,37 @@ import { colors } from "~/styles/colors";
 export const CardContainer = styled.div<{
   alive: "Dead" | "Alive" | "unknown";
 }>`
+  position: relative;
+
+  .star {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    fill: rgba(252, 198, 0, 0.8);
+    z-index: 20;
+    cursor: pointer;
+  }
+
+  &:hover {
+    .content {
+      box-shadow: 0px 0px 20px 10px
+        ${({ alive }) =>
+          alive === "Alive"
+            ? colors.greenOpacity
+            : alive === "Dead"
+            ? colors.redOpacity
+            : colors.whiteOpacity};
+      transition: 0.3s;
+
+      .cardImage {
+        transition: 0.3s;
+        transform: scale(1.05);
+      }
+    }
+  }
+`;
+
+export const Content = styled.div`
   width: 320px;
   padding: 30px;
   cursor: pointer;
@@ -16,29 +47,6 @@ export const CardContainer = styled.div<{
   box-shadow: 0px 0px 20px -2.5px ${colors.whiteOpacity};
   transition: 0.3s;
   position: relative;
-
-  .star {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    fill: yellow;
-  }
-
-  &:hover {
-    box-shadow: 0px 0px 20px 10px
-      ${({ alive }) =>
-        alive === "Alive"
-          ? colors.greenOpacity
-          : alive === "Dead"
-          ? colors.redOpacity
-          : colors.whiteOpacity};
-    transition: 0.3s;
-
-    .cardImage {
-      transition: 0.3s;
-      transform: scale(1.05);
-    }
-  }
 
   gap: 10px;
 `;

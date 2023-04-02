@@ -11,3 +11,6 @@ export * from "./HeaderFilters";
 export * from "./CardsLayout";
 export * from "./CardList";
 export * from "./FiltersForModal";
+export * from "./Favorites";
+export * from "./Character";
+export * from "./NotFoundCharacter";

@@ -7,7 +7,7 @@ import { FaGripHorizontal, FaListUl } from "react-icons/fa";
 import { setLayouts } from "~/store/layout";
 import { FiltersForModal } from "../FiltersForModal";
 
-export function HeaderFilters() {
+export function HeaderFilters({ hasSearch = true }: { hasSearch?: boolean }) {
   const dispatch = useDispatch();
   const { characters } = useSelector((auth: IRootState) => auth.characters);
   const { layout } = useSelector((auth: IRootState) => auth.layout);
@@ -28,8 +28,14 @@ export function HeaderFilters() {
 
   return (
     <Container>
-      <FiltersForModal />
-      <Search search={search} />
+      {hasSearch ? (
+        <>
+          <FiltersForModal />
+          <Search search={search} />
+        </>
+      ) : (
+        <div style={{ width: "100%" }} />
+      )}
       <Options>
         <Card
           onClick={() => changeLayout("square")}

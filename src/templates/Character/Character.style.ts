@@ -16,10 +16,3 @@ export const Container = styled.section`
     padding: 50px 15px;
   }
 `;
-
-export const Divisor = styled.div`
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  gap: 30px;
-`;

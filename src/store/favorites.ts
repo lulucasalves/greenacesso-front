@@ -20,9 +20,12 @@ const favoriteSlice = createSlice({
       );
     },
     removeFavorite: (state: any, action) => {
-      state.favorites = state.favorites.filter(function (item) {
+      const filtered = state.favorites.filter(function (item) {
         return item !== action.payload;
       });
+
+      state.favorites = filtered;
+      localStorage.setItem("favorites", JSON.stringify(filtered));
     },
   },
 });

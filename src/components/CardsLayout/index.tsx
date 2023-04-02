@@ -1,27 +1,23 @@
 import { CardsList, CardsSquare } from "./CardsLayout.style";
 import { Card, CardList, NotFound } from "~/components";
 
-export function CardsLayout({ data, layout }: { data: any; layout: string }) {
+export function CardsLayout({ data, layout,hasButton }: { data: any; layout: string; hasButton:boolean }) {
   return (
     <>
       {layout === "square" || innerWidth < 790 ? (
         <CardsSquare>
-          {data ? (
-            data.results.map((value: any) => (
-              <Card key={value.id} value={value} />
-            ))
+          {data.length ? (
+            data.map((value: any) => <Card key={value.id} value={value} />)
           ) : (
-            <NotFound />
+            <NotFound hasButton={hasButton} />
           )}
         </CardsSquare>
       ) : (
         <CardsList>
-          {data ? (
-            data.results.map((value: any) => (
-              <CardList key={value.id} value={value} />
-            ))
+          {data.length ? (
+            data.map((value: any) => <CardList key={value.id} value={value} />)
           ) : (
-            <NotFound />
+            <NotFound hasButton={hasButton} />
           )}
         </CardsList>
       )}

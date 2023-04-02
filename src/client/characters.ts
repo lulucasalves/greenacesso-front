@@ -8,6 +8,7 @@ export async function getCharacters({
   search,
   specie,
   gender,
+  ids,
   status,
 }: {
   page: number;
@@ -15,19 +16,31 @@ export async function getCharacters({
   specie?: string;
   gender?: string;
   status?: string;
+  ids?: number[];
 }) {
   const searchParam = search ? `&&name=${search}` : "";
   const specieParam = specie && specie !== "all" ? `&&species=${specie}` : "";
   const genderParam = gender && gender !== "all" ? `&&gender=${gender}` : "";
   const statusParam = status && status !== "all" ? `&&status=${status}` : "";
+  const idsRoute = ids && ids.length ? `/${ids.join(",")}` : "";
 
   return api
     .get<any>(
-      `/character?page=${page}${searchParam}${specieParam}${genderParam}${statusParam}`
+      `/character${idsRoute}?page=${page}${searchParam}${specieParam}${genderParam}${statusParam}`
     )
     .then((response: AxiosResponse<any>) => response.data)
     .catch(() => {
       data: [{ results: [] }];
+    });
+}
+
+export async function getCharacter(id: string) {
+  return api
+    .get<any>(`/character/${id}`)
+    .then((response: AxiosResponse<any>) => response.data)
+    .catch(() => {
+      data: {
+      }
     });
 }
 
@@ -37,16 +50,29 @@ export function useCharacters({
   specie,
   gender,
   status,
+  ids,
 }: {
   page: number;
   search?: string;
   specie?: string;
   gender?: string;
   status?: string;
+  ids?: number[];
 }) {
   const { data, ...rest } = useQuery({
     queryFn: async () =>
-      await getCharacters({ page, search, specie, gender, status }),
+      await getCharacters({ page, search, specie, gender, status, ids }),
+  });
+
+  return {
+    data,
+    ...rest,
+  };
+}
+
+export function useCharacter(id: string) {
+  const { data, ...rest } = useQuery({
+    queryFn: async () => await getCharacter(id),
   });
 
   return {

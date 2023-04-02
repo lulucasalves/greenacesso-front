@@ -4,13 +4,16 @@ import { IRootState } from "~/store";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { setAllFiltersCharacters } from "~/store/filters";
-import { Card, CardsLayout, NotFound, Pagination, Search } from "~/components";
+import { CardsLayout, Pagination, Search } from "~/components";
 import Image from "next/image";
 
 export function Characters() {
   const { characters } = useSelector((auth: IRootState) => auth.characters);
   const { layout } = useSelector((auth: IRootState) => auth.layout);
-  const { data, refetch, isLoading, isFetching } = useCharacters(characters);
+  const { data, refetch, isLoading, isFetching } = useCharacters({
+    ...characters,
+    ids: [],
+  });
   const dispatch = useDispatch();
 
   function paginate(page: number) {
@@ -27,7 +30,11 @@ export function Characters() {
     <Container>
       <Cards>
         {!isLoading && !isFetching ? (
-          <CardsLayout layout={layout} data={data} />
+          <>
+            {data !== undefined && (
+              <CardsLayout hasButton layout={layout} data={data.results} />
+            )}
+          </>
         ) : (
           [1, 2, 3, 4, 5, 6, 7, 8, 9].map((value: number) => (
             <Image
@@ -40,7 +47,7 @@ export function Characters() {
           ))
         )}
       </Cards>
-      {data && (
+      {data && data.info && (
         <Pagination
           maxPage={data.info.pages}
           paginate={paginate}
