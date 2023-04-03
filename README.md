@@ -1,4 +1,6 @@
 # Green Acesso - Site de Rick and Morty
+<img src="https://github.com/lulucasalves/greenacesso-front/blob/main/.github/front.png?raw=true" />
+<br>
 <div style="display: flex; flex-direction: column; z-index: 1; flex-grow: 1; position: relative; align-items: center; margin-right: 0px; margin-bottom: 0px; overflow: hidden auto;"
     class="notion-scroller vertical">
     <div style="position: absolute; top: 0px; left: 0px;">
